@@ -10,7 +10,8 @@ CREATE TABLE medical_histories(
   admitted_at TIMESTAMP,
   patient_id INT,
   status VARCHAR,
-  PRIMARY KEY(id)
+  PRIMARY KEY(id),
+  FOREIGN KEY(patient_id) REFERENCES patients(id)
 );
 
 CREATE TABLE treatments(
@@ -19,3 +20,11 @@ CREATE TABLE treatments(
   name VARCHAR,
   PRIMARY KEY(id)
 );
+
+CREATE TABLE invoices(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  total_amount DECIMAL,
+  generated_at TIMESTAMP,
+  payed_at TIMESTAMP,
+  medical_history_id INT,
+)
