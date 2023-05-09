@@ -64,15 +64,6 @@ Clone this repository to your desired folder:
   git git@github.com:zeff96/clinic_database.git
 ```
 
-### Install
-
-Install this project with:
-
-```sh
-  cd my-project
-  gem install
-```
-
 ### Usage
 
 To run the project, execute the following command:
