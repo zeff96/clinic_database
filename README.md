@@ -47,14 +47,6 @@
 
 To get a local copy up and running, follow these steps.
 
-### Prerequisites
-
-In order to run this project you need:
-
-```sh
- gem install rails
-```
-
 ### Setup
 
 Clone this repository to your desired folder:
@@ -62,22 +54,6 @@ Clone this repository to your desired folder:
 ```sh
   cd my-folder
   git git@github.com:zeff96/clinic_database.git
-```
-
-### Usage
-
-To run the project, execute the following command:
-
-```sh
-  rails server
-```
-
-### Run tests
-
-To run tests, run the following command:
-
-```sh
-  bin/rails test test/models/article_test.rb
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
