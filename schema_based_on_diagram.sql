@@ -12,3 +12,10 @@ CREATE TABLE medical_histories(
   status VARCHAR,
   PRIMARY KEY(id)
 );
+
+CREATE TABLE treatments(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  type VARCHAR,
+  name VARCHAR,
+  PRIMARY KEY(id)
+);
