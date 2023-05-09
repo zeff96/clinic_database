@@ -11,7 +11,7 @@ CREATE TABLE medical_histories(
   patient_id INT,
   status VARCHAR,
   PRIMARY KEY(id),
-  FOREIGN KEY(patient_id) REFERENCES patients(id)
+  CONSTRAINT fk_patient_id FOREIGN KEY(patient_id) REFERENCES patients(id)
 );
 
 CREATE TABLE treatments(
@@ -19,6 +19,15 @@ CREATE TABLE treatments(
   type VARCHAR,
   name VARCHAR,
   PRIMARY KEY(id)
+);
+
+CREATE TABLE medical_histories_has_treatments(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  medical_history_id INT,
+  treatment_id INT,
+  PRIMARY KEY(id),
+  CONSTRAINT fk_medical_history_id FOREIGN KEY(medical_history_id) REFERENCES medical_histories(id),
+  CONSTRAINT fk_treatment_id FOREIGN KEY(treatment_id) REFERENCES treatments(id)
 );
 
 CREATE TABLE invoices(
