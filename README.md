@@ -47,6 +47,12 @@
 
 To get a local copy up and running, follow these steps.
 
+### Prerequisites
+
+In order to run this project you need:
+
+- [Install Postgresql](https://www.postgresql.org/download/)
+
 ### Setup
 
 Clone this repository to your desired folder:
