@@ -14,6 +14,8 @@ CREATE TABLE medical_histories(
   CONSTRAINT fk_patient_id FOREIGN KEY(patient_id) REFERENCES patients(id)
 );
 
+CREATE INDEX patient_id ON medical_histories(patient_id ASC);
+
 CREATE TABLE treatments(
   id INT GENERATED ALWAYS AS IDENTITY,
   type VARCHAR,
@@ -30,6 +32,8 @@ CREATE TABLE medical_histories_has_treatments(
   CONSTRAINT fk_treatment_id FOREIGN KEY(treatment_id) REFERENCES treatments(id)
 );
 
+CREATE INDEX mult_data_index ON medical_histories_has_treatments(medical_history_id, treatment_id);
+
 CREATE TABLE invoices(
   id INT GENERATED ALWAYS AS IDENTITY,
   total_amount DECIMAL,
@@ -39,6 +43,8 @@ CREATE TABLE invoices(
   PRIMARY KEY(id),
   CONSTRAINT fk_medical_history_id FOREIGN KEY(medical_history_id) REFERENCES medical_histories(id)
 );
+
+CREATE INDEX medical_history_id ON invoices(medical_history_id);
 
 CREATE TABLE invoices_items(
   id INT GENERATED ALWAYS AS IDENTITY,
@@ -51,4 +57,6 @@ CREATE TABLE invoices_items(
   CONSTRAINT fk_invoice_id FOREIGN KEY(invoice_id) REFERENCES invoices(id),
   CONSTRAINT fk_treatment_id FOREIGN KEY(treatment_id) REFERENCES treatments(id)
 );
+
+CREATE INDEX mult_data_index ON invoices_items(invoice_id, treatment_id);
 
